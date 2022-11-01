@@ -601,7 +601,7 @@ public abstract class MixinScreen extends AbstractParentElement implements IScre
 
     @Inject(at = @At("RETURN"), method = "render")
     public void render(int mouseX, int mouseY, float delta, CallbackInfo info) {
-        onRenderInternal(mouseX, mouseY, delta);
+        jsmacros_render(mouseX, mouseY, delta);
     }
 
     @Override
@@ -625,7 +625,7 @@ public abstract class MixinScreen extends AbstractParentElement implements IScre
         }
 
         if (hoverText != null) {
-            return handleComponentClicked(jsmacros_getTextComponentUnderMouse(hoverText.text, (int) mouseX - hoverText.x));
+            handleComponentClicked(jsmacros_getTextComponentUnderMouse(hoverText.text, (int) mouseX - hoverText.x));
         }
     }
 
